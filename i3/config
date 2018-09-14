@@ -73,7 +73,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Control+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym mod4+s layout stacking
@@ -151,8 +151,16 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
+bar {    
+	position top
+	tray_output primary
+	workspace_buttons no	
+#	strip_workspace_numbers no
+	# middle click bar to take a screenshot
+	bindsym --release button2 exec --no-startup-id import /tmp/latest-screenshot.png
+	
+        status_command i3blocks
+#        status_command conky
 	colors {
 		background #000000
 		separator #FF69B4
@@ -164,7 +172,10 @@ bar {
 }
 
 # Some border styles
-new_window 1pixel
+for_window [ class="^.*" ] border pixel 2
+
+# gaps
+gaps inner 8
 
 # google chrome fast
 bindsym $mod+c exec google-chrome
@@ -186,7 +197,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 
 # disable focus wrapping
-#focus_wrapping no
+focus_wrapping no
 
 # STARTUP APPLICATIONS #
 

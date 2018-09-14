@@ -1,0 +1,5 @@
+! Right-Alt remapped to Escape
+keycode 108 = Escape
+
+! Capslock remapped to Control
+keycode 66 = Control_L
