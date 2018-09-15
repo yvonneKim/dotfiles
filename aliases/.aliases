@@ -1,5 +1,6 @@
 alias sudo="sudo "
 alias s="sudo "
+alias please='sudo $(fc -ln -1)'
 alias c="clear"
 alias emacs="emacs -nw"
 alias e="emacs -nw"

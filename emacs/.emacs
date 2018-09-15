@@ -17,3 +17,6 @@
       kept-new-versions 6
       kept-old-versions 2
       version-control t)
+
+;; enable clipboarding with X
+(setq x-select-enable-clipboard t)
