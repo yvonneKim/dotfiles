@@ -125,5 +125,4 @@ fi
 
 # BASH STARTUP
 
-feh --bg-scale /home/yvn/Downloads/digimonadventure-1536723237695-9295.jpg
 #feh --bg-scale /home/yvn/Downloads/Marijuana-Background.jpg

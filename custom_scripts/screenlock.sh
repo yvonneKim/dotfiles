@@ -1,4 +1,3 @@
-
 #! /bin/bash
 
 #take a screenshot and save that to /tmp/lockpic.png

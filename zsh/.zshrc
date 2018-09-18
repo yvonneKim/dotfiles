@@ -2,13 +2,49 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/yvn/.oh-my-zsh"
+export ZSH="/home/yvn/.oh-my-zsh"
+
+# gets angry if I don't do this for login shell :/
+export TERM="xterm-256color"
+
+# FONT LOADING
+#source ~/.fonts/*.sh
+
+# POWERLEVEL9K STUFF
+POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_PROMPT_ON_NEWLINE=false
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=' '
+POWERLEVEL9K_DIR_HOME_BACKGROUND='234'
+POWERLEVEL9K_DIR_HOME_FOREGROUND='012'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='234'
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='012'
+POWERLEVEL9K_DIR_DEFAULT_BACKGROUND='234'
+POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='white'
+POWERLEVEL9K_DIR_ETC_BACKGROUND='130' # burnt orangey
+POWERLEVEL9K_DIR_ETC_FOREGROUND='234'
+POWERLEVEL9K_STATUS_OK_BACKGROUND='234'
+POWERLEVEL9K_STATUS_OK_FOREGROUND='082' # bright yellow-green
+POWERLEVEL9K_STATUS_ERROR_BACKGROUND='167' 
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='234' # bright red
+POWERLEVEL9K_VCS_CLEAN_BACKGROUND='156' # light green
+POWERLEVEL9K_VCS_CLEAN_FOREGROUND='234' 
+POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='214' # mustard
+POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='234'
+POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='203'  # pinkish 
+POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND='234'
+POWERLEVEL_9K_SHOW_WRITABLE=true
+
+POWERLEVEL9K_SHORTEN_STRATEGY='truncate_middle'
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -64,9 +100,11 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
-    battery
     colored-man-pages
-    emoji-clock
+    colorize
+    extract
+    history
+    web-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,3 +139,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source $HOME/.aliases
+
+# set wallpaper
+feh --bg-scale /home/yvn/Downloads/Marijuana-Background.jpg           

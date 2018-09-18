@@ -1,0 +1,210 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+black = #000
+grey = #808080
+grey_dark = #404040
+grey_light = #DCDCDC
+silver = #C0C0C0
+white = #fff
+
+red = #FF0023
+red_pastel = #FF7084
+pink = #FF7084
+deep_pink = #FF1493
+red_dark = #9F0016
+orange = #FF6400
+orange_pastel = #FFA870
+orange_dark = #A74200
+brown = #A74200
+yellow = #FFFF00
+yellow_pastel = #fffb96
+green_neon = #3DFF00
+green_pastel = #92FF70
+green_dark = #228E00
+seafoam = #05ffa1
+blue_neon = #00FFCD
+blue_pastel = #A4FFED
+blue_dark = #006B56
+baby_blue = #01cdfe
+blues_clues = #678bdc
+
+lavender = #ae81ff
+purple = #660066
+
+
+[bar/main]
+monitor = eDP1
+dock = false
+width = 100%
+height = 30
+offset-x = 0
+offset-y = 0
+
+bottom = false
+
+;until alpha works for tray icons, cant be transparent 
+;background = #aa000000
+background = #000000
+foreground = ${colors.baby_blue}
+
+line-size = 1
+linecolor = ${colors.white}
+
+;dim-value = 0.0
+
+spacing = 1
+lineheight = 2
+padding-top = 1
+padding-left = 0
+padding-right = 10
+module-margin-left = 0
+module-margin-right = 8
+
+font-0 = hack:size=10;0
+font-1 = FontAwesome:size=12;1
+
+modules-center = datetime 
+modules-right = pulseaudio battery0 battery1 backlight wifi vpn
+
+tray-position = left
+tray-maxsize = 25
+tray-detached = true
+tray-background = ${root.background}
+tray-offset-x = 1%
+tray-scale = 1.0
+
+wm-name = i3
+wm-restack = i3
+
+[module/title]
+type = internal/xwindow
+
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <bar>
+
+
+[module/wifi]
+type = internal/network
+interface = wlp4s0
+interval = 1
+
+format-connected = <label-connected>
+label-connected =  %essid%
+label-connected-foreground = #A4FFED
+
+format-disconnected = <label-disconnected>
+label-disconnected = x
+label-disconnected-foreground = ${colors.lavender}
+
+[module/vpn]
+type = internal/network
+interface = tun0
+interval = 1
+
+format-connected = <label-connected>
+label-connected = VPN
+label-connected-foreground = ${colors.lavender}
+
+; [module/wired]
+; type = internal/network
+; interface = enp2s0
+; interval = 5
+
+; label-connected = %{T3}%local_ip%%{T-}
+; label-connected-foreground = ${colors.lavender}
+
+
+[module/datetime]
+type = internal/date
+interval = 1
+; date = " %a %d, %H:%M"
+date = "%b %d"
+time = "%I:%M %p"
+label = %date% - %time%
+format-foreground = ${colors.yellow}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+master-soundcard = hw:1
+;sink = alsa_output.pci-0000_00_1f.3.analog-stereo
+use-ui-max = true
+format-volume = <ramp-volume><label-volume>
+module-margin-right = 0
+
+ramp-volume-0 =
+ramp-volume-1 =
+ramp-volume-2 =
+ramp-volume-3 =
+
+format-volume-foreground = ${colors.grey_light}
+format-volume-background = ${root.background}
+
+label-muted =  MUTED
+label-muted-foreground = ${colors.grey}
+ramp-headphones-0 = 
+
+interval = 2
+
+[module/battery0]
+type = internal/battery
+full-at = 99
+battery = BAT0
+adapter = AC0
+poll-interval = 1
+interval = 1
+
+time-format = "%I:%M"
+format-charging = <label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+format-full = <label-full>
+label-charging =  %percentage%%
+label-charging-foreground = ${colors.orange}
+label-discharging = %percentage%%
+label-discharging-foreground = ${colors.green_neon}
+label-full = Full
+ramp-capacity-foreground = ${colors.green_neon}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+
+[module/battery1]
+type = internal/battery
+full-at = 99
+battery = BAT1
+adapter = AC0
+poll-interval = 1
+interval = 1
+
+time-format = "%I:%M"
+format-charging = <label-charging>
+format-discharging = <ramp-capacity><label-discharging>
+format-full = <label-full>
+label-charging =  %percentage%%
+label-charging-foreground = ${colors.green_neon}
+label-discharging = %percentage%%
+label-discharging-foreground = ${colors.green_neon}
+label-full = FULL
+ramp-capacity-foreground = ${colors.green_neon}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+
+
+; vim:ft=dosini
