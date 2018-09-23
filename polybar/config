@@ -10,7 +10,7 @@
 [colors]
 black = #000
 grey = #808080
-grey_dark = #404040
+grey_dark = #181818
 grey_light = #DCDCDC
 silver = #C0C0C0
 white = #fff
@@ -52,7 +52,7 @@ bottom = false
 
 ;until alpha works for tray icons, cant be transparent 
 ;background = #aa000000
-background = #000000
+background = #aa181818
 foreground = ${colors.baby_blue}
 
 line-size = 1
@@ -68,11 +68,13 @@ padding-right = 10
 module-margin-left = 0
 module-margin-right = 8
 
-font-0 = hack:size=10;0
-font-1 = FontAwesome:size=12;1
+;font-0 = Monoid NF:size=9;3
+font-1 = FontAwesome:size=11;3
+font-2 = "ProggyCleanTTCE NF:size=12;3"
+font-0 = "UbuntuMono:size=12;2"
 
 modules-center = datetime 
-modules-right = pulseaudio battery0 battery1 backlight wifi vpn
+modules-right = pulseaudio battery-combined-udev backlight wifi vpn
 
 tray-position = left
 tray-maxsize = 25
@@ -101,7 +103,7 @@ interval = 1
 
 format-connected = <label-connected>
 label-connected =  %essid%
-label-connected-foreground = #A4FFED
+label-connected-foreground = ${colors.blue_pastel}
 
 format-disconnected = <label-disconnected>
 label-disconnected = x
@@ -113,8 +115,11 @@ interface = tun0
 interval = 1
 
 format-connected = <label-connected>
-label-connected = VPN
-label-connected-foreground = ${colors.lavender}
+format-disconnected = <label-disconnected>
+label-connected = [VPN]
+label-connected-foreground = ${colors.pink}
+label-disconnected = [ - ]
+label-disconnected-foreground = ${colors.red_dark}
 
 ; [module/wired]
 ; type = internal/network
@@ -129,17 +134,20 @@ label-connected-foreground = ${colors.lavender}
 type = internal/date
 interval = 1
 ; date = " %a %d, %H:%M"
-date = "%b %d"
+date = "%%{T3}%b %d"
 time = "%I:%M %p"
 label = %date% - %time%
-format-foreground = ${colors.yellow}
+format-foreground = ${colors.white}
+format-underline = ${colors.yellow_pastel}
 
 [module/pulseaudio]
 type = internal/pulseaudio
 master-soundcard = hw:1
 ;sink = alsa_output.pci-0000_00_1f.3.analog-stereo
 use-ui-max = true
-format-volume = <ramp-volume><label-volume>
+format-volume = <ramp-volume> <label-volume>
+label-volume-font = 1
+
 module-margin-right = 0
 
 ramp-volume-0 =
@@ -147,7 +155,7 @@ ramp-volume-1 =
 ramp-volume-2 =
 ramp-volume-3 =
 
-format-volume-foreground = ${colors.grey_light}
+format-volume-foreground = ${colors.white}
 format-volume-background = ${root.background}
 
 label-muted =  MUTED
@@ -155,6 +163,11 @@ label-muted-foreground = ${colors.grey}
 ramp-headphones-0 = 
 
 interval = 2
+
+[module/battery-combined-udev]
+type = custom/script
+exec = ~/.config/polybar/battery-combined-udev.sh 
+tail = true
 
 [module/battery0]
 type = internal/battery
@@ -169,11 +182,11 @@ format-charging = <label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 format-full = <label-full>
 label-charging =  %percentage%%
-label-charging-foreground = ${colors.orange}
+label-charging-foreground = ${colors.white}
 label-discharging = %percentage%%
-label-discharging-foreground = ${colors.green_neon}
+label-discharging-foreground = ${colors.white}
 label-full = Full
-ramp-capacity-foreground = ${colors.green_neon}
+ramp-capacity-foreground = ${colors.white}
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
@@ -194,11 +207,11 @@ format-charging = <label-charging>
 format-discharging = <ramp-capacity><label-discharging>
 format-full = <label-full>
 label-charging =  %percentage%%
-label-charging-foreground = ${colors.green_neon}
+label-charging-foreground = ${colors.white}
 label-discharging = %percentage%%
-label-discharging-foreground = ${colors.green_neon}
+label-discharging-foreground = ${colors.white}
 label-full = FULL
-ramp-capacity-foreground = ${colors.green_neon}
+ramp-capacity-foreground = ${colors.white}
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 

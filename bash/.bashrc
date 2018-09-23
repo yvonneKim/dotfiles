@@ -124,5 +124,3 @@ if ! shopt -oq posix; then
 fi
 
 # BASH STARTUP
-
-#feh --bg-scale /home/yvn/Downloads/Marijuana-Background.jpg
