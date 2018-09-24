@@ -60,21 +60,19 @@ linecolor = ${colors.white}
 
 ;dim-value = 0.0
 
-spacing = 1
-lineheight = 2
-padding-top = 1
+padding-top = 0
 padding-left = 0
-padding-right = 10
-module-margin-left = 0
-module-margin-right = 8
+padding-right = 3
+module-margin-left = 2
+module-margin-right = 2
 
 ;font-0 = Monoid NF:size=9;3
+font-0 = "UbuntuMono:size=11;2"
 font-1 = FontAwesome:size=11;3
-font-2 = "ProggyCleanTTCE NF:size=12;3"
-font-0 = "UbuntuMono:size=12;2"
+font-2 = "ProggyCleanTTCE NF:size=11;3"
 
 modules-center = datetime 
-modules-right = pulseaudio battery-combined-udev backlight wifi vpn
+modules-right = pulseaudio battery-combined-udev backlight wifi isrunning-openvpn
 
 tray-position = left
 tray-maxsize = 25
@@ -109,6 +107,12 @@ format-disconnected = <label-disconnected>
 label-disconnected = x
 label-disconnected-foreground = ${colors.lavender}
 
+[module/isrunning-openvpn]
+type = custom/script
+exec = ~/.config/polybar/isrunning-openvpn.sh
+label-foreground = ${colors.pink}
+interval = 5
+
 [module/vpn]
 type = internal/network
 interface = tun0
@@ -116,9 +120,9 @@ interval = 1
 
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
-label-connected = [VPN]
+label-connected = 
 label-connected-foreground = ${colors.pink}
-label-disconnected = [ - ]
+label-disconnected = x
 label-disconnected-foreground = ${colors.red_dark}
 
 ; [module/wired]
@@ -134,11 +138,20 @@ label-disconnected-foreground = ${colors.red_dark}
 type = internal/date
 interval = 1
 ; date = " %a %d, %H:%M"
-date = "%%{T3}%b %d"
+date = "%%{T2}%b %d"
 time = "%I:%M %p"
 label = %date% - %time%
 format-foreground = ${colors.white}
 format-underline = ${colors.yellow_pastel}
+
+[module/pulseaudio-tail]
+type = custom/script
+exec = ~/.config/polybar/pulseaudio-tail.sh
+tail = true
+click-right = pavucontrol &
+click-left = ~/.config/polybar/pulseaudio-tail.sh --mute
+scroll-up = ~/.config/polybar/pulseaudio-tail.sh --up
+scroll-down = ~/.config/polybar/pulseaudio-tail.sh --down
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -167,6 +180,7 @@ interval = 2
 [module/battery-combined-udev]
 type = custom/script
 exec = ~/.config/polybar/battery-combined-udev.sh 
+label-foreground = ${colors.yellow_pastel}
 tail = true
 
 [module/battery0]

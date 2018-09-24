@@ -155,7 +155,7 @@ gaps inner 8
 
 ## CUSTOM BINDS ##
 # lock screen 
-bindsym Mod1+Control+Delete exec /home/yvn/screenlock.sh
+bindsym Mod1+Control+Delete exec /home/yvn/.local/bin/screenlock.sh
 
 # google chrome fast
 bindsym $mod+c exec google-chrome
@@ -182,7 +182,13 @@ focus_wrapping no
 # scratchpad init on setup
 for_window [instance="__scratchpad"] move scratchpad 
 exec --no-startup-id termite --name __scratchpad
+# compton
 exec --no-startup-id compton -b
-exec_always --no-startup-id feh --bg-scale /home/yvn/Downloads/aigis.jpg
+# betterlockscreen wallpaper
+exec --no-startup-id betterlockscreen -u $BG_DIR -b
+exec --no-startup-id betterlockscreen -w dim
+exec --no-startup-id source ~/.fehbg # alternative, last used bg
+# polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+# nm-applet
 exec --no-startup-id nm-applet
