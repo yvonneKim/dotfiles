@@ -186,7 +186,7 @@ exec --no-startup-id termite --name __scratchpad
 exec --no-startup-id compton -b
 # betterlockscreen wallpaper
 exec --no-startup-id betterlockscreen -u $BG_DIR -b
-exec --no-startup-id betterlockscreen -w dim
+exec --no-startup-id betterlockscreen -w
 exec --no-startup-id source ~/.fehbg # alternative, last used bg
 # polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
