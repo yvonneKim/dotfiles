@@ -179,6 +179,9 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 5
 focus_wrapping no
 
 # STARTUP APPLICATIONS #
+# dunst notif daemon
+exec dunst
+# autolock
 # scratchpad init on setup
 for_window [instance="__scratchpad"] move scratchpad 
 exec --no-startup-id termite --name __scratchpad
