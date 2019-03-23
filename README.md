@@ -1,3 +1,9 @@
-I've been having a great time fiddling with this stuff.
+# yvonne's dotfiles
+Use GNU Stow for these like so:
 
-Here are my dotfiles, configurations, and every loving expression of myself made for machines.
+`cd ~/.dotfiles`
+`mkdir spacemacs`
+`touch .spacemacs`
+`stow spacemacs`
+
+And then the symlink will be in `~/.spacemacs`
