@@ -125,12 +125,14 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    zsh-syntax-highlighting
     git
     colored-man-pages
     colorize
     extract
     history
     web-search
+    fasd
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -164,9 +166,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source $HOME/.aliases
+export BG_DIR=$HOME/Pictures/backgrounds
 
-export BG_DIR=/home/yvn/Pictures/backgrounds
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+source $HOME/.aliases
 
 # Start 1password manager
 eval $(op signin my)
+
+# needs to be at the end
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
