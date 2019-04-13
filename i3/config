@@ -8,7 +8,7 @@ font pango:monospace 8
 #floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite -e /bin/zsh
+bindsym $mod+Ctrl+Return exec termite -e /bin/zsh
 
 # kill focused window
 bindsym $mod+Ctrl+q kill
@@ -63,7 +63,7 @@ bindsym $mod+Shift+space floating toggle
 #bindsym $mod+d focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child conptainer
 #bindsym $mod+d focus child
@@ -158,7 +158,10 @@ gaps inner 8
 bindsym Mod1+Control+Delete exec /home/yvn/.local/bin/screenlock.sh
 
 # google chrome fast
-bindsym $mod+c exec google-chrome
+bindsym $mod+Ctrl+c exec google-chrome
+
+# emacs gui
+bindsym $mod+Ctrl+e exec emacs
 
 # middle button and mod over any part of window to kill it
 bindsym --whole-window $mod+button2 kill

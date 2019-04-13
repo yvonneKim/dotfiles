@@ -2,7 +2,7 @@ alias sudo="sudo "
 alias s="sudo "
 alias please='sudo $(fc -ln -1)'
 alias c="clear"
-alias e="emacs -nw"
+alias e="emacsclient -a '' -nw"
 alias grep="grep --color=auto"
 alias g="grep --color=auto"
 alias l="ls -altr"
@@ -12,3 +12,4 @@ alias pgrep="pgrep -i"
 alias python="python3 "
 alias pip="pip3"
 alias grl="grep -rl"
+alias dropbox="dropbox.py" # ~/bin/dropbox.py

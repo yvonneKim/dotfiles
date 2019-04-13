@@ -25,6 +25,9 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
+;; rust stuff
+(add-hook 'rust-mode-hook' cargo-minor-mode)
+
 
 ;; Better imenu
 (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
@@ -56,7 +59,7 @@
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(compilation-message-face (quote default))
- '(custom-enabled-themes (quote (afternoon)))
+;; '(custom-enabled-themes (quote (afternoon)))
  '(custom-safe-themes
    (quote
     ("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" "d1ede12c09296a84d007ef121cd72061c2c6722fcb02cb50a77d9eae4138a3ff" "dd43ce1171324a8e47f9e4ca9f49773c4b4960706171ab951130c668adc59f53" "e03d2f414fb109f3920752b10b92323697174f49d577da9e69979edbb147a921" "834cbeacb6837f3ddca4a1a7b19b1af3834f36a701e8b15b628cad3d85c970ff" "13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" "36ca8f60565af20ef4f30783aa16a26d96c02df7b4e54e9900a5138fb33808da" "bf798e9e8ff00d4bf2512597f36e5a135ce48e477ce88a0764cfb5d8104e8163" "c9ddf33b383e74dac7690255dd2c3dfa1961a8e8a1d20e401c6572febef61045" "d8dc153c58354d612b2576fea87fe676a3a5d43bcc71170c62ddde4a1ad9e1fb" "2540689fd0bc5d74c4682764ff6c94057ba8061a98be5dd21116bf7bf301acfb" default)))
@@ -80,7 +83,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (py-autopep8 autopair iedit darkokai-theme monokai-alt-theme monokai-theme hc-zenburn-theme zenburn-theme moe-theme abyss-theme ample-theme afternoon-theme elpy xref-js2 js2-refactor js2-mode)))
+    (cargo flycheck-rust rust-mode py-autopep8 autopair iedit darkokai-theme monokai-alt-theme monokai-theme hc-zenburn-theme zenburn-theme moe-theme abyss-theme ample-theme afternoon-theme elpy xref-js2 js2-refactor js2-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#E6DB74")
  '(pos-tip-foreground-color "#242728")
@@ -136,7 +139,7 @@
 ;;(define-key yas-minor-mode-map (kbd "C-c o") 'yas-expand)
 
 ;; load the theme
-(load-theme 'afternoon t)
+;;(load-theme 'afternoon t)
 
 ;; Behave like vi's o command
     ;; (defun open-next-line (arg)

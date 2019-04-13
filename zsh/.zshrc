@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yvn/.oh-my-zsh"
@@ -167,3 +167,6 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
 
 export BG_DIR=/home/yvn/Pictures/backgrounds
+
+# Start 1password manager
+eval $(op signin my)
