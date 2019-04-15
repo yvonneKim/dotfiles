@@ -16,6 +16,7 @@ bindsym $mod+Ctrl+q kill
 # start dmenu (a program launcher)
 # bindsym $mod+space exec dmenu_extended_run -i -b -p '> ' -fn 'Ubuntu Mono:bold:pixelsize=15' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#b58900'
 bindsym $mod+space exec dmenu_extended_run
+bindsym $mod+g exec dmenu_extended_run "-> Internet search: " "Google"
 
 # change focus
 # VIM KEYBINDINGS PLEASE
@@ -97,7 +98,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -125,6 +126,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+## NOTE: I'm using polybar instead of i3bar! ##
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # bar {    
@@ -148,10 +150,10 @@ bindsym $mod+r mode "resize"
 # }
 
 # Some border styles
-for_window [ class="^.*" ] border pixel 2
+for_window [ class="^.*" ] border pixel 1
 
 # gaps
-gaps inner 8
+gaps inner 2
 
 ## CUSTOM BINDS ##
 # lock screen 
