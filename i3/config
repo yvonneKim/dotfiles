@@ -150,10 +150,11 @@ bindsym $mod+r mode "resize"
 # }
 
 # Some border styles
+#for_window [ class="google-chrome" ] 
 for_window [ class="^.*" ] border pixel 1
 
 # gaps
-gaps inner 2
+gaps inner 0
 
 ## CUSTOM BINDS ##
 # lock screen 

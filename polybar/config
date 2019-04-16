@@ -52,7 +52,7 @@ bottom = false
 
 ;until alpha works for tray icons, cant be transparent 
 ;background = #aa000000
-background = #aa181818
+background = #181818
 foreground = ${colors.baby_blue}
 
 line-size = 1
@@ -71,8 +71,8 @@ font-0 = "UbuntuMono:size=11;2"
 font-1 = FontAwesome:size=11;3
 font-2 = "ProggyCleanTTCE NF:size=11;3"
 
-modules-center = datetime 
-modules-right = pulseaudio battery-combined-udev backlight wifi isrunning-openvpn
+modules-center = datetime
+modules-right = pulseaudio battery-combined-udev
 
 tray-position = left
 tray-maxsize = 25
@@ -125,13 +125,13 @@ label-connected-foreground = ${colors.pink}
 label-disconnected = x
 label-disconnected-foreground = ${colors.red_dark}
 
-; [module/wired]
-; type = internal/network
-; interface = enp2s0
-; interval = 5
+[module/wired]
+type = internal/network
+interface = enp2s0
+interval = 5
 
-; label-connected = %{T3}%local_ip%%{T-}
-; label-connected-foreground = ${colors.lavender}
+label-connected = %{T3}%local_ip%%{T-}
+label-connected-foreground = ${colors.lavender}
 
 
 [module/datetime]
@@ -180,7 +180,7 @@ interval = 2
 [module/battery-combined-udev]
 type = custom/script
 exec = ~/.config/polybar/battery-combined-udev.sh 
-label-foreground = ${colors.yellow_pastel}
+label-foreground = ${colors.white}
 tail = true
 
 [module/battery0]
