@@ -2,10 +2,13 @@
 export PATH=$HOME/.cargo/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/yvn/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # gets angry if I don't do this for login shell :/
 export TERM="xterm-256color"
+
+# for rofi
+export XDG_DATA_DIRS="$HOME/.config/rofi:/usr/local/share:/usr/share"
 
 # POWERLEVEL9K #
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -172,8 +175,13 @@ export BG_DIR=$HOME/Pictures/backgrounds
 
 source $HOME/.aliases
 
+#monitors for polybar
+export MONITOR_0=eDP1
+export MONITOR_1=HDMI1
+
 # Start 1password manager
 eval $(op signin my)
 
 # needs to be at the end
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/yvn/dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

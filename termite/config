@@ -48,7 +48,8 @@ scrollbar = off
 #background = #3f3f3f
 
 # background transparency (requires a compositor)
-background = rgba(13, 13, 13, 1)
+#background = rgba(13, 13, 13, 1)
+background = #000000
 
 # If unset, will reverse foreground and background
 highlight = #2f2f2f

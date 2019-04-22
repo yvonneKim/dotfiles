@@ -15,8 +15,12 @@ bindsym $mod+Ctrl+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+space exec dmenu_extended_run -i -b -p '> ' -fn 'Ubuntu Mono:bold:pixelsize=15' -nb '#fdf6e3' -nf '#586c75' -sf '#fdf6e3' -sb '#b58900'
-bindsym $mod+space exec dmenu_extended_run
-bindsym $mod+g exec dmenu_extended_run "-> Internet search: " "Google"
+# bindsym $mod+space exec dmenu_extended_run
+# bindsym $mod+g exec dmenu_extended_run "-> Internet search: " "Google"
+
+# start rofi (a program launcher)
+#bindsym $mod+Tab exec "rofi -show combi"
+bindsym $mod+space exec "rofi -show run -display-run '' -matching fuzzy"
 
 # change focus
 # VIM KEYBINDINGS PLEASE
@@ -93,12 +97,17 @@ bindsym $mod+Control+8 move container to workspace 8
 bindsym $mod+Control+9 move container to workspace 9
 bindsym $mod+Control+0 move container to workspace 10
 
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# hit workspace switch again to go back to previous workspace
+workspace_auto_back_and_forth yes
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -152,6 +161,7 @@ bindsym $mod+r mode "resize"
 # Some border styles
 #for_window [ class="google-chrome" ] 
 for_window [ class="^.*" ] border pixel 1
+hide_edge_borders smart
 
 # gaps
 gaps inner 0
@@ -189,7 +199,9 @@ focus_wrapping no
 exec dunst
 # autolock
 # scratchpad init on setup
-for_window [instance="__scratchpad"] move scratchpad 
+for_window [instance="__scratchpad"] move scratchpad, resize set 600 200, move position 650 500
+# assign scratchpad to primary output only
+assign [instance="__scratchpad"] output primary
 exec --no-startup-id termite --name __scratchpad
 # compton
 exec --no-startup-id compton -b
@@ -201,3 +213,6 @@ exec --no-startup-id source ~/.fehbg # alternative, last used bg
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 # nm-applet
 exec --no-startup-id nm-applet
+# configure monitor positions
+#exec_always xrandr --output eDP1 --primary --mode 1366x768 --pos 0x0 --output HDMI2 --auto
+#exec_always xrandr --output VIRTUAL1 --off --output eDP1 --primary --mode 1366x768 --pos 282x1080 --rotate normal --output DP1 --off --output HDMI2 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI1 --off --output DP2 --off

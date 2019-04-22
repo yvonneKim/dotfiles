@@ -1,0 +1,130 @@
+/**
+ * User: qball
+ * Copyright: Dave Davenport
+ */
+* {
+    font: "Ubuntu Mono 12";
+    text-color:  #ffeedd;
+    background-color: rgba(0,0,0,0.7);
+    transparent: rgba(0,0,0,0);
+    dark: #1c1c1c;
+    // Black
+    black:       #3d352a;
+    lightblack:  #999999;
+    //
+    // Red
+    red:         #cd5c5c;
+    lightred:    #cc5533;
+    //
+    // Green
+    green:       #86af80;
+    lightgreen:  #88cc22;
+    //
+    // Yellow
+    yellow:      #e8ae5b;
+    lightyellow:     #fffb96;
+    //
+    // Blue
+    blue:      #6495ed;
+    lightblue:     #87ceeb;
+    //
+    // Magenta
+    magenta:      #deb887;
+    lightmagenta:     #996600;
+    //
+    // Cyan
+    cyan:      #b0c4de;
+    lightcyan:     #b0c4de;
+    //
+    // White
+    white:      #bbaa99;
+    lightwhite:     #ddccbb;
+    //
+    // Bold, Italic, Underline
+    highlight:     underline;
+}
+#window {
+    fullscreen: true;
+    text-color: @lightwhite;
+    orientation: horizontal;
+    children: [mainbox];
+}
+
+#dummy {
+    expand: true;
+}
+
+#button selected {
+    border-color: @lightgreen;
+    text-color: @lightgreen;
+}
+#entry {
+    border: 1px 0px 1px 1px;
+    border-color: #aaaaaa;
+    border-radius: 3px;
+    padding: 5px 0px 5px 10px;
+    margin: 0px 0px 10px 0px;
+    background-color: #000000;
+    width: 500em;
+}
+#inputbar {
+    text-color: @lightgreen;
+    padding: 4px;
+}
+#mainbox {
+// top, right, bottom, left
+    margin: 30% 25% 30% 25%;
+    background-color: @transparent;
+    expand: false;
+}
+#listview {
+    background-color: @transparent;
+    padding: 0em 0em 0em 3em;
+    spacing: 4px;
+    dynamic: true;
+}
+element {
+    background-color: @transparent;
+}
+#element normal {
+    text-color: @lightblack;
+}
+#element selected normal {
+    text-color: @normal-foreground;
+}
+#element normal active {
+    text-color: @lightblue;
+}
+#element normal urgent {
+    text-color: @lightred;
+}
+#element alternate normal {
+    text-color: @lightblack;
+}
+#element alternate active {
+    text-color: @lightblue;
+}
+#element alternate urgent {
+    text-color: @lightred;
+}
+#element selected active {
+    background-color: @lightblue;
+    text-color: @dark;
+}
+#element selected urgent {
+    background-color: @lightred;
+    text-color: @dark;
+}
+#inputbar {
+    background-color: @transparent;
+    children:   [ prompt,entry,case-indicator ];
+}
+#prompt {
+   padding: 0em 0em 0.5em 2em;
+   background-color: @transparent;
+}
+#case-indicator {
+   background-color: @transparent;
+}
+
+
