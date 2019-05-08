@@ -177,7 +177,7 @@ bindsym $mod+Ctrl+c exec google-chrome
 bindsym $mod+Ctrl+e exec emacs
 
 # middle button and mod over any part of window to kill it
-bindsym --whole-window $mod+button2 kill
+#bindsym --whole-window $mod+button2 kill
 
 # scratchpad stuff
 bindsym $mod+Control+space scratchpad show
